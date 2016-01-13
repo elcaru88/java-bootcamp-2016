@@ -9,7 +9,7 @@ public class SQlFactory extends ConnectionFactory {
 
 	public Connection getConnection(String type) {
 		if(type.equals("msql")){
-			return MySqlConnection.conectar();
+			return MySqlConnection.connect();
 		}else if(type.endsWith("oracle")){
 			return OracleConnection.conectar();
 		}

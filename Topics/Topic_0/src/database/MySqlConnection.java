@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MySqlConnection {
+import proxys.ConnectionInter;
+
+public class MySqlConnection extends ConnectionInter {
 
 	private static String ruta = "localhost";
 	private static String url = "proyectoweb";
@@ -20,7 +22,7 @@ public class MySqlConnection {
 		}
 	}
 	
-	public static Connection conectar(){
+	public static Connection connect(){
 		try {
 			if(conn == null || conn.isClosed()){
 				conn = DriverManager.getConnection("jdbc:mysql://" + ruta + "/" + url, user,pass);
@@ -31,7 +33,7 @@ public class MySqlConnection {
 		return conn;
 	}
 	
-	public static void desconectar(){
+	public static void disconnect(){
 		try {
 			if(conn != null || !conn.isClosed()){
 				conn.close();
@@ -40,5 +42,11 @@ public class MySqlConnection {
 			e.printStackTrace();
 		}
 	}
+	
+	public Connection getConnection() {
+		return connect();
+	}
+	
+	
 	
 }
