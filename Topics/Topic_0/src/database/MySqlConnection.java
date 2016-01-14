@@ -8,7 +8,7 @@ import proxys.ConnectionInter;
 
 public class MySqlConnection extends ConnectionInter {
 
-	private static String ruta = "localhost";
+	private static String id = "localhost";
 	private static String url = "proyectoweb";
 	private static String user = "root";
 	private static String pass = "root";
@@ -25,7 +25,7 @@ public class MySqlConnection extends ConnectionInter {
 	public static Connection connect(){
 		try {
 			if(conn == null || conn.isClosed()){
-				conn = DriverManager.getConnection("jdbc:mysql://" + ruta + "/" + url, user,pass);
+				conn = DriverManager.getConnection("jdbc:mysql://" + id + "/" + url, user,pass);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -46,7 +46,42 @@ public class MySqlConnection extends ConnectionInter {
 	public Connection getConnection() {
 		return connect();
 	}
+
 	
-	
+	public static String getUrl() {
+		return url;
+	}
+
+	public static void setUrl(String url) {
+		MySqlConnection.url = url;
+	}
+
+	public static String getUser() {
+		return user;
+	}
+
+	public static void setUser(String user) {
+		MySqlConnection.user = user;
+	}
+
+	public static String getPass() {
+		return pass;
+	}
+
+	public static void setPass(String pass) {
+		MySqlConnection.pass = pass;
+	}
+	public static String getId() {
+		return id;
+	}
+
+	public static void setId(String id) {
+		MySqlConnection.id = id;
+	}
+
+	public static String getAllData() {
+		String data="id:"+ id+" url:"+url+" user:"+user +" pass:"+ pass ;
+		return data;
+	}
 	
 }

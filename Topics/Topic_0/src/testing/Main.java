@@ -2,6 +2,10 @@ package testing;
 
 import java.sql.Connection;
 
+import database.MySqlConnection;
+import directors.ConnectionDirector;
+import builders.ConnectionBuilder;
+import builders.MySqlConnectionBuilder;
 import proxys.ProxyConnection;
 import factories.AbstractFactory;
 import factories.ConnectionFactory;
@@ -21,6 +25,13 @@ public class Main {
 		ProxyConnection proxy= new ProxyConnection();
 		Connection conn3= proxy.getConnecion();
 		
+		
+		//point 4
+		ConnectionBuilder builder= new MySqlConnectionBuilder();
+		ConnectionDirector director = new ConnectionDirector(builder);
+		director.constructorConnection();
+		
+		System.out.println(MySqlConnection.getAllData());
 		
 		
 		
