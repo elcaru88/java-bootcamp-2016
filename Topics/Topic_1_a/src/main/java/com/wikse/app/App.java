@@ -1,13 +1,24 @@
 package com.wikse.app;
 
 /**
- * Hello world!
+ * App Testing 
  *
  */
-public class App 
+public class App
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+	private int a;
+	private int b;
+	
+    public App(int a, int b) {
+    	this.a=a;
+    	this.b=b;
+	}
+	
+    public int add(){
+    	return a+b;
+    }
+    
+    public int subt(){
+    	return a-b;
     }
 }
