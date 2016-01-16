@@ -15,4 +15,12 @@ public class ListBehavior {
 		return myList.isEmpty();
 	}
 
+	public boolean addFile(File file) {
+		if (file.hasbeenOpend()) {
+			myList.add(file);
+			return true;
+		}
+		return false;
+	}
+
 }
