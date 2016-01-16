@@ -17,10 +17,21 @@ public class ListBehavior {
 
 	public boolean addFile(File file) {
 		if (file.hasbeenOpend()) {
+			if(myList.contains(file)){
+				myList.remove(file);
+			}
 			myList.add(file);
 			return true;
 		}
 		return false;
+	}
+
+	public void clean() {
+		myList.clear();
+	}
+
+	public Object length() {
+		return myList.size();
 	}
 
 }
