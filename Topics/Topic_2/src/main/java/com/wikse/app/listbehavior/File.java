@@ -1,4 +1,4 @@
-package com.wikse.app;
+package com.wikse.app.listbehavior;
 
 public class File {
 	private boolean isOpen;

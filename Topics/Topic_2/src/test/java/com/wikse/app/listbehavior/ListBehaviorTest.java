@@ -1,8 +1,11 @@
-package com.wikse.app;
+package com.wikse.app.listbehavior;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.wikse.app.listbehavior.File;
+import com.wikse.app.listbehavior.ListBehavior;
 
 import static org.junit.Assert.*;
 

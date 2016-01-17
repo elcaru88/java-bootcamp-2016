@@ -1,4 +1,4 @@
-package com.wikse.app;
+package com.wikse.app.listbehavior;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
