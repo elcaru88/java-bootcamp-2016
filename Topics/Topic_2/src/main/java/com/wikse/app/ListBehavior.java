@@ -1,11 +1,13 @@
 package com.wikse.app;
 
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 
 public class ListBehavior {
-	private Queue<File> myList;
-	
+	private List<File> myList;
+	private static final int LIMIT_LIST=15;
+	private static final int FIRST_ELEMENT_INDEX=0;
+	private static final int LAST_FILE_INDEX = LIMIT_LIST-1;
 	
 	public ListBehavior(){
 		myList= new LinkedList<File>();
@@ -20,6 +22,9 @@ public class ListBehavior {
 			if(myList.contains(file)){
 				myList.remove(file);
 			}
+			if(myList.size()==LIMIT_LIST){
+				myList.remove(FIRST_ELEMENT_INDEX);
+			}
 			myList.add(file);
 			return true;
 		}
@@ -32,6 +37,14 @@ public class ListBehavior {
 
 	public Object length() {
 		return myList.size();
+	}
+
+	public File getFirstElement() {
+		return myList.get(FIRST_ELEMENT_INDEX);
+	}
+
+	public File getLastFile() {
+		return myList.get(LAST_FILE_INDEX);
 	}
 
 }

@@ -6,7 +6,7 @@ public class File {
 	public File() {
 		isOpen=false;
 	}
-	
+
 	public void open() {
 		isOpen=true;
 	}
