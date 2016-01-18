@@ -1,5 +1,7 @@
 package com.wikse.app.blog;
 
+import java.util.List;
+
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,6 +43,12 @@ public class BlogFeaturesTest {
 		assertEquals(true, blog.removeEntry(entry));
 	}
 	
+	@Test
+	public void testShowing10MostRecentEntries(){
+		blog= new BlogFeatureFake();
+		List<Entry> entries= blog.getTenRecentEntries(); 
+		assertEquals(10, entries.size());
+	}
 	
 	
 	
