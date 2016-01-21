@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.wikse.app.bo.Product;
+import com.wikse.app.bo.User;
 
 public class DataBaseHelper {
 
 	private static List<Product> products=null;
-	
+	private static List<User> users=null;
 	
 	public static List<Product> getListProducts(){
 		if (products == null) {
@@ -25,5 +26,24 @@ public class DataBaseHelper {
 		products.add(new Product(4,"notebook",100,12000.0));
 		products.add(new Product(5,"netbook",100,1000.0));
 		products.add(new Product(6,"joystick",100,600.0));
+	}
+
+	public static List<User> getListUsers() {
+		if (users == null) {
+			fillUserList();
+		}
+		return users;
+	}
+
+	private static void fillUserList() {
+		users= new ArrayList<>();
+		users.add(new User(2, "moni", "65985236", "moni@email.com", "987654"));
+		users.add(new User(3, "toto", "87542115", "toto@email.com", "45678"));
+		users.add(new User(4, "manolo", "98567458", "manolo@email.com", "12345"));
+		
+	}
+
+	public static void setListUsers(List<User> users2) {
+		users = users2;
 	}
 }

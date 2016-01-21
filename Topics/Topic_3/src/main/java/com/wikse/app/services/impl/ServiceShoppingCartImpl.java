@@ -9,7 +9,7 @@ import com.wikse.app.dao.impl.ProductDAOImp;
 import com.wikse.app.services.ServiceShoppingCart;
 
 /**
- * this class manages the implementation of a shopping cart
+ * This class manages the implementation of a shopping cart
  * @author Emanuel
  * @version 1.0
  * @since 2016-01-19

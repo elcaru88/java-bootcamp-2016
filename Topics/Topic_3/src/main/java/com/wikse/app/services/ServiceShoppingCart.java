@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.wikse.app.bo.Product;
 
+/**
+ * This class manages the implementation of the shopping cart.
+ * @author Emanuel
+ * @version 1.0
+ * @since 2016-01-19
+ */
 public interface ServiceShoppingCart {
 
 
@@ -23,12 +29,4 @@ public interface ServiceShoppingCart {
 	
 	
 	
-//	/**
-//	 * Add a product to the shopping list.
-//	 * @param product the product to add to the list.
-//	 * @param quantity the amount of product to buy
-//	 * @return true if the product has been added to list, false if not
-//	 */
-//	boolean addToCart(Product product, int quantity);
-//	
 }
