@@ -8,15 +8,13 @@ public class Demo {
 		 
 		ArrayList<Entry> blog= Blog.getInstance();
 		Blog bl = new Blog();
-	    ActionsEntry ae = new ActionsEntry();
-	    bl.setActionsEntry(ae);
-	    int a=bl.saveMessage();
-	    System.out.println(a);
+	   ActionsEntry ae = new ActionsEntry();
+	   bl.setActionsEntry(ae);
+	   int a=bl.saveMessage();
+	   System.out.println(a);
 	    
-	    
-	    	    
-	    bl.list10MoreRecentEntries();
-	   
+	   bl.list10MoreRecentEntries();
+	   bl.removeMessage(2);
 	    
 	 }
 
