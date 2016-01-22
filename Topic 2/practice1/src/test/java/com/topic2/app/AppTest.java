@@ -4,7 +4,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.mockito.Mockito;
-
+import org.junit.Test;
 
 
 /**
@@ -31,6 +31,8 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
+    @Test    
+    
     /**
      * Rigourous Test :-)
      */
@@ -38,6 +40,7 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
     
       
 }
