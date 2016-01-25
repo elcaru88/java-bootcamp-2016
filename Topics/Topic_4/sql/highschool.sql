@@ -15,6 +15,7 @@ create database Highschool;
 
 --tablas:
 
+
 CREATE TABLE student(
   id_student INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(25) NOT NULL,
@@ -50,6 +51,13 @@ CREATE TABLE course_student(
 );
 
 
+CREATE TABLE course_day (
+  id_course int(11) NOT NULL,
+  day_week int(11) NOT NULL,
+  init time DEFAULT NULL,
+  finish time DEFAULT NULL
+) ;
+
 --relaciones
 
 ALTER TABLE course_day
@@ -61,7 +69,7 @@ ALTER TABLE course_student
 ALTER TABLE course
   ADD PRIMARY KEY (id_course);
   
--- datos:
+-- data:
 INSERT INTO teacher (id_teacher, first_name, last_name, birthday) 
 VALUES (NULL, cristian, caru, 2016-01-04), (NULL, gaston, abasto, 2016-01-04),(NULL, pepe, argento, 2016-01-04)
 
@@ -147,7 +155,6 @@ INSERT INTO `course_day` (`id_course`, `day_week`, `init`, `finish`) VALUES
 (3, 30, 7, 6, 5, 4); 
 
 
---ejercicios:
 
 
 
