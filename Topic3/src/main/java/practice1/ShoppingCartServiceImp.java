@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ShoppingCartServiceImp implements ShoppingCartService {
 
-	protected ShoppingCartServiceImp() {
+	public ShoppingCartServiceImp() {
 		super();
 	}
 
@@ -39,13 +39,15 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		updateCart();
 	}
 
-	public void updateCart() {
+	public int updateCart() {
 		
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
 		while (scart.iterator().hasNext()){
 			total += scart.iterator().next().getItemPrice();
 		}
+		
+		return total;
 	}
 
 	public void clearCart() {
