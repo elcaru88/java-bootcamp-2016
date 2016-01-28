@@ -1,4 +1,4 @@
-package com.topic3services.app;
+package practice1;
 
 public class Item {
 

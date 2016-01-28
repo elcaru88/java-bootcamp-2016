@@ -1,12 +1,11 @@
-package com.topic3services.app;
+package practice1;
 
 public interface ShoppingCartService {
 
 	public void addItem(Item item);
 	public void removeItem(int itemId);
-	public void doCheckout();
+	public void updateCart();
 	public void clearCart();
-	public int isCartEmpty();
 	public void viewCart();
 	
 }
