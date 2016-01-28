@@ -26,7 +26,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
 		scart.add(item);
-		
+						
 		updateCart();
 	}
 
@@ -67,5 +67,6 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		System.out.println("Total cart:" + total);
 		
 	}
-			
+	
+				
 }

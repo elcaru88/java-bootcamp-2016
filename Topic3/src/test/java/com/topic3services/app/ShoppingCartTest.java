@@ -12,17 +12,16 @@ import static org.mockito.Mockito.*;
 
 public class ShoppingCartTest {
 
-	private Item item;
+	private static Item item;
 	
 	@Before
 	public void setUp(){
 		
-		item = mock(Item.class);
-
-		Item item1 = new Item("ItemName1",10,"1");
-		Item item2 = new Item("ItemName2",20,"2");
-		Item item3 = new Item("ItemName3",10,"3");
+		item = new Item("ItemName1",10,"1");
+		item = new Item("ItemName2",20,"2");
+		item = new Item("ItemName3",10,"3");
 		
+	
 		
 	}
 	
@@ -30,10 +29,9 @@ public class ShoppingCartTest {
 	public void testAddItem(){
 		ShoppingCartServiceImp scart = new ShoppingCartServiceImp();
 		
-		scart.addItem(new Item("ItemName1",10,"1"));
-		scart.addItem(new Item("ItemName2",20,"2"));
+		scart.addItem(item);
 		
-		assertEquals(40, scart.updateCart());
+		assertEquals(5, scart.updateCart());
 	}
 	
 	
