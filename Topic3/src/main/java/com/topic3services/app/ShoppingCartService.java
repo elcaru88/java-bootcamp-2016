@@ -7,5 +7,6 @@ public interface ShoppingCartService {
 	public void doCheckout();
 	public void clearCart();
 	public int isCartEmpty();
+	public void viewCart();
 	
 }
