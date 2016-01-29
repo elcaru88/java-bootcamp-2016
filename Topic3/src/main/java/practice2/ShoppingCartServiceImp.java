@@ -1,10 +1,9 @@
-package practice1;
+package practice2;
 
 import java.util.ArrayList;
 
-
-
-import practice2.ActionsItem;
+import practice1.Item;
+import practice1.ShoppingCartService;
 
 public class ShoppingCartServiceImp implements ShoppingCartService {
 
@@ -71,13 +70,17 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		
 	}
 
-	public ArrayList<Item> viewCart() {
+	public int viewCart() {
 	
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 
+		for (Item position : scart){
+			System.out.println(position.toString());
+		}
+		
 		System.out.println("Total price cart: " + total);
 		
-		return scart;
+		return 0;
 	}
 	
 				

@@ -5,8 +5,8 @@ import org.junit.Test;
 
 import practice1.Item;
 import practice1.ShoppingCartService;
-import practice1.ShoppingCartServiceImp;
 import practice2.ActionsItem;
+import practice2.ShoppingCartServiceImp;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;

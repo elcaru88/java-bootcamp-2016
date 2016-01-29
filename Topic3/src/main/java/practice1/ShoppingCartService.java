@@ -6,6 +6,6 @@ public interface ShoppingCartService {
 	public void removeItem(int itemId);
 	public int updateCart();
 	public void clearCart();
-	public void viewCart();
+	public int viewCart();
 	
 }
