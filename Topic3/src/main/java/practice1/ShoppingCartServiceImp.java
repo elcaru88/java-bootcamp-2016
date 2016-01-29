@@ -2,6 +2,10 @@ package practice1;
 
 import java.util.ArrayList;
 
+
+
+import practice2.ActionsItem;
+
 public class ShoppingCartServiceImp implements ShoppingCartService {
 
 	public ShoppingCartServiceImp() {
@@ -9,6 +13,15 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	}
 
 	private static int total;
+	
+	protected ActionsItem actionsItem;
+	
+	public ActionsItem getItem() {
+		return actionsItem;
+	}
+	public void setActionsItem(ActionsItem actionsItem) {
+		this.actionsItem = actionsItem;
+	}
 	
 	static ArrayList<Item> scart;
 	
@@ -27,16 +40,16 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		
 		scart.add(item);
 						
-		updateCart();
 	}
-
+	
+	
 	public void removeItem(int itemId) {
 
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
 		scart.remove(itemId);
 		
-		updateCart();
+	
 	}
 
 	public int updateCart() {
@@ -64,7 +77,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 
 		scart.toArray();
 		
-		System.out.println("Total cart:" + total);
+		System.out.println("Total price cart: " + total);
 		
 	}
 	

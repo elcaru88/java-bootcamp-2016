@@ -6,35 +6,41 @@ import org.junit.Test;
 import practice1.Item;
 import practice1.ShoppingCartService;
 import practice1.ShoppingCartServiceImp;
+import practice2.ActionsItem;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+
 public class ShoppingCartTest {
 
-	private static Item item;
-	
+	ShoppingCartServiceImp scartEmpty;
+	ShoppingCartServiceImp scart;
+	Item item1;
+		
 	@Before
 	public void setUp(){
 		
-		item = new Item("ItemName1",10,"1");
-		item = new Item("ItemName2",20,"2");
-		item = new Item("ItemName3",10,"3");
+		scartEmpty = new ShoppingCartServiceImp();
 		
-	
+		scart = new ShoppingCartServiceImp();
+
 		
 	}
 	
 	@Test
-	public void testAddItem(){
-		ShoppingCartServiceImp scart = new ShoppingCartServiceImp();
-		
-		scart.addItem(item);
-		
-		assertEquals(5, scart.updateCart());
+	public void testEmptyCart(){
+				
+		assertEquals(0,scartEmpty.updateCart());
+			
 	}
 	
+	@Test
+	public void testAddItem(){
+				
+		assertEquals(0,scart.updateCart());
+			
+	}
 	
-
 	
 }
