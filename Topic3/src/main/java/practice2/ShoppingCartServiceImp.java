@@ -43,7 +43,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 	}
 	
 	
-	public void removeItem(Item item) {
+	public int removeItem(Item item) {
 
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		int i = 0;
@@ -52,12 +52,13 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 			
 			if (position.getItemId() == item.getItemId()){
 				scart.remove(i);
+				total -= item.getItemPrice();
+				return 0;
 			}
 			i++;
 		}
-
-		total -= item.getItemPrice();
-
+	
+		return -1;
 	}
 
 	public void clearCart() {

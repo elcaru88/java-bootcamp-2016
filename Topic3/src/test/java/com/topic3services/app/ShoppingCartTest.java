@@ -57,10 +57,4 @@ public class ShoppingCartTest {
 		assertEquals(10,scartTest.getTotal());
 	}
 	
-	@Test
-	public void D_viewCartTest(){
-		
-		scartTest.viewCart();
-		
-	}
 }
