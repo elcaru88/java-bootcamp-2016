@@ -56,8 +56,8 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
-		while (scart.iterator().hasNext()){
-			total += scart.iterator().next().getItemPrice();
+		for (Item position : scart){
+			total += position.getItemPrice();
 		}
 		
 		return total;
@@ -71,14 +71,13 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		
 	}
 
-	public void viewCart() {
+	public ArrayList<Item> viewCart() {
 	
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 
-		scart.toArray();
-		
 		System.out.println("Total price cart: " + total);
 		
+		return scart;
 	}
 	
 				
