@@ -4,8 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import practice1.Item;
-import practice1.ShoppingCartService;
-import practice2.ActionsItem;
 import practice2.ShoppingCartServiceImp;
 
 import static org.junit.Assert.*;
@@ -14,31 +12,36 @@ import static org.mockito.Mockito.*;
 
 public class ShoppingCartTest {
 
-	ShoppingCartServiceImp scartEmpty;
 	ShoppingCartServiceImp scart;
-	Item item1;
+	Item item1, item2, item3;
 		
 	@Before
 	public void setUp(){
 		
-		scartEmpty = new ShoppingCartServiceImp();
-		
 		scart = new ShoppingCartServiceImp();
-
 		
+		item1 = new Item("Item1",10,"1");
+		item2 = new Item("Item2",25,"2");
+		item3 = new Item("Item3",10,"3");
+
 	}
 	
 	@Test
 	public void testEmptyCart(){
 				
-		assertEquals(0,scartEmpty.updateCart());
+		assertEquals(0,scart.updateCart());
 			
 	}
 	
 	@Test
 	public void testAddItem(){
 				
-		assertEquals(0,scart.updateCart());
+		scart.addItem(item1);
+		scart.addItem(item2);
+		scart.addItem(item3);
+		
+		assertEquals(45,scart.updateCart());
+			
 			
 	}
 	
