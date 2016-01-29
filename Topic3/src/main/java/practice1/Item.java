@@ -13,7 +13,7 @@ public class Item {
 		// TODO Auto-generated constructor stub
 	}
 	private String itemName;
-	private int itemPrice;
+	private double itemPrice;
 	private String itemId;
 	
 	public String getItemName() {
@@ -22,7 +22,7 @@ public class Item {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public int getItemPrice() {
+	public double getItemPrice() {
 		return itemPrice;
 	}
 	public void setItemPrice(int itemPrice) {
@@ -31,8 +31,8 @@ public class Item {
 	public String getItemId() {
 		return itemId;
 	}
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
+	public void setItemId(String itemPosition) {
+		this.itemId = itemPosition;
 	}
 	@Override
 	public String toString() {
