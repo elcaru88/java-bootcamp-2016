@@ -38,35 +38,28 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
 		scart.add(item);
-						
+		
+		total += item.getItemPrice();
 	}
 	
 	
-	public void removeItem(int itemId) {
+	public void removeItem(Item item) {
 
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 		
-		scart.remove(itemId);
+		total -= item.getItemPrice();
 		
-	
-	}
-
-	public int updateCart() {
-		
-		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
-		
-		for (Item position : scart){
-			total += position.getItemPrice();
-		}
-		
-		return total;
+		scart.remove(item);
+				
 	}
 
 	public void clearCart() {
 
 		ArrayList<Item> scart = ShoppingCartServiceImp.getInstance();
 
-		scart.clear();
+		scart.removeAll(scart);
+		
+	
 		
 	}
 
@@ -78,10 +71,12 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
 			System.out.println(position.toString());
 		}
 		
-		System.out.println("Total price cart: " + total);
-		
 		return 0;
 	}
 	
-				
+	public int getTotal() {
+		
+		return total;
+	}
+	
 }
