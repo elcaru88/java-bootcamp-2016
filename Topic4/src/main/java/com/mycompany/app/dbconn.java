@@ -6,13 +6,12 @@ import java.sql.SQLException;
 
 public class dbconn {
 
-
-
-	public class Conexion {
+	
+	
 
 		private Connection con;
 
-		public Conexion() throws ClassNotFoundException {
+		public dbconn() throws ClassNotFoundException {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 		}
@@ -22,7 +21,7 @@ public class dbconn {
 			if (this.con == null || this.con.isClosed()) {
 			
 				this.con = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/sistema_contable", "root",
+						"jdbc:mysql://localhost:3306/high-school", "root",
 						"root");
 							
 			}
@@ -33,7 +32,7 @@ public class dbconn {
 			con.close();
 		}
 
-	}
+	
 
 	
 }

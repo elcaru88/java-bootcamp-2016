@@ -22,11 +22,15 @@ public class Demo {
 		
 		while(rs.next()) {
 			
-			System.out.println("Teacher: "+rs.getString("lastname")+","+rs.getString("firstname"));
-			System.out.println("Course name: "+rs2.getString("name"));
+			System.out.println("Teacher: "+rs.getString("lastname")+", "+rs.getString("firstname"));
+			
+			while(rs2.next()){
+			
+			System.out.println("Course Name: "+rs2.getString("name"));
 			System.out.println("Days: "+rs2.getString("days"));
-			System.out.println("From : "+rs2.getString("startTime"));
-			System.out.println("To: "+rs2.getString("endTime"));
+			System.out.println("Hour : "+rs2.getString("startTime")+" - "+rs2.getString("endTime"));
+			System.out.println("");
+		}
 		}
 		
 		rs.close();

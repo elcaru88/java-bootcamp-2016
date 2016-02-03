@@ -19,6 +19,12 @@
 	<artifactId>mysql-connector-java</artifactId>
 	<version>5.1.38</version>
 </dependency>
+ <fileset>
+            <basedir>${basedir}</basedir>
+            <includes>
+              <include>src/main/high-school.sql</include>
+            </includes>
+          </fileset>
 
   </dependencies>
 </project>
