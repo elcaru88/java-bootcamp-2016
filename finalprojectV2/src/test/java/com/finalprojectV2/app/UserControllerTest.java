@@ -20,9 +20,9 @@ public class UserControllerTest {
 	@Test
 	@Rollback(false)
 	@Transactional
-	public void testCreateUser(String nickname, String password) {
+	public void testCreateUser() {
 		
-		userservice.createUser(nickname, password);
+		userservice.createUser("Fede", "fede");
 		
 	}
 
