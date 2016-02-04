@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wordnik.swagger.annotations.ApiModel;
 
 @ApiModel(value="User Entity", description="Complete info of Entity User")
@@ -17,11 +20,13 @@ public class Cart {
 	@Id
 	@GeneratedValue
 	private Integer id_cart;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idUser")
+	@JsonIgnore
 	private User user;
 	private Date date_bought;
 	private boolean isclose;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Product> products;
 	
 	public Integer getId_cart() {

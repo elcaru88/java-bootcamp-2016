@@ -48,27 +48,14 @@ public abstract class GenericDAOImpl  <T, Id extends Serializable> implements Ge
 
 	@Transactional  //(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public boolean delete(T object) {
-		T t= getManager().merge(object);
-		boolean found;
-		if (t !=null) {
-			found=true;
-		}else{
-			return false;
-		}
-		getManager().remove(t);
-		return found;
+		getManager().remove(getManager().merge(object));
+		return true;
 	}
 	
 	@Transactional
 	public boolean add(T object) {
-		T t= getManager().merge(object);
-		boolean found=false;
-		if (t ==null) {
-			getManager().persist(object);
-		}else{
-			return false;
-		}
-		return found;
+		getManager().persist(object);
+		return true;
 	}
 
 	public EntityManager getManager() {

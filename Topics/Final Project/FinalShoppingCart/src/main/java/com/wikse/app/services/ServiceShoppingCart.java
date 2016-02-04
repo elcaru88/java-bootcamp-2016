@@ -3,9 +3,7 @@ package com.wikse.app.services;
 import java.util.List;
 
 import com.wikse.app.entities.Cart;
-import com.wikse.app.entities.Category;
 import com.wikse.app.entities.Product;
-import com.wikse.app.entities.User;
 
 /**
  * This class manages the implementation of the shopping cart.
@@ -25,9 +23,9 @@ public interface ServiceShoppingCart {
 	
 	Product findProductByName(String name);
 	
-	List<Product> findProductByCategory(Category category);
+	List<Product> findProductByCategory(int id_category);
 	
 	boolean SaveShoppingCart(Cart cart);
 	
-	Cart getShoppingCartSaved(User user);
+	Cart findOpenCartsByUserId(int idUser);
 }

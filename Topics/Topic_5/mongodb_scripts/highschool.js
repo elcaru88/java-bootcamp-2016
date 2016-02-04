@@ -146,9 +146,9 @@ db.course.insert(course3)
 /*
 2. Fetch all students whose notes in a specific course were greater than 4 
 */
-, id_course : 1
+
 db.course.find(
-	{"notes.fnl_note": {$gt: 4}},
+	{"notes.fnl_note": {$gt: 4}, id_course : 1},
 	{_id: 0}
 )
 db.course.aggregate([

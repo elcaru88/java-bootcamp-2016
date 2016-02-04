@@ -4,12 +4,13 @@ import java.util.Calendar;
 
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wikse.app.dao.CartDAO;
 import com.wikse.app.entities.Cart;
-import com.wikse.app.entities.User;
 
+@Repository
 public class CartDAOImpl extends GenericDAOImpl<Cart, Integer> implements CartDAO {
 
 	@Transactional
@@ -26,10 +27,11 @@ public class CartDAOImpl extends GenericDAOImpl<Cart, Integer> implements CartDA
 	}
 
 	@Override
-	public Cart getUserCartOpen(User user) {
+	@Transactional
+	public Cart getUserCartOpen(int idUser) {
 		@SuppressWarnings("unchecked")
-		TypedQuery<Cart> query=(TypedQuery<Cart>) getManager().createQuery("SELECT c FROM Cart c WHERE c.user= :user");
-		query.setParameter("user", user);
+		TypedQuery<Cart> query=(TypedQuery<Cart>) getManager().createQuery("SELECT c FROM Cart c WHERE c.user.idUser= :idUser and c.isclose= false");
+		query.setParameter("idUser", idUser);
 		return query.getSingleResult();
 	}
 

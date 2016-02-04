@@ -3,10 +3,12 @@ package com.wikse.app.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wordnik.swagger.annotations.ApiModel;
@@ -16,6 +18,9 @@ import com.wordnik.swagger.annotations.ApiModelProperty;
 
 @ApiModel(value="User Entity", description="Complete info of Entity User")
 @Entity
+@NamedQueries({
+		@NamedQuery(name ="User.getByid",query="SELECT u from User u where u.idUser= :iduser ")
+})
 public class User {
 	@ApiModelProperty(value="the User's id")
 	@Id
@@ -31,17 +36,14 @@ public class User {
 	@ApiModelProperty(value="the User's email")
 	private String email;
 	
-	@JsonIgnore
 	@ApiModelProperty(value="the product's password")
 	private String password;
 	
 	@ApiModelProperty(value="A list of shopping carts closed")
-	@OneToMany
+	@JsonIgnore
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
 	private List<Cart> carts_Closed;
-	
-	@ApiModelProperty(value="A shopping cart open to buy")
-	@OneToOne
-	private Cart shoppingCart;
+
 
 	
 	public User() {
@@ -83,12 +85,7 @@ public class User {
 	public void setCarts_Closed(List<Cart> carts_Closed) {
 		this.carts_Closed = carts_Closed;
 	}
-	public Cart getShoppingCart() {
-		return shoppingCart;
-	}
-	public void setShoppingCart(Cart shoppingCart) {
-		this.shoppingCart = shoppingCart;
-	}
+	
 
 	
 	@Override
