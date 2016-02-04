@@ -2,7 +2,6 @@ package com.wikse.app.dao;
 
 import java.util.List;
 
-import com.wikse.app.entities.Category;
 import com.wikse.app.entities.Product;
 /**
  * Manages all the data from database about Products.
@@ -39,5 +38,5 @@ public interface ProductDAO extends GenericDAO<Product, Integer>{
 //	 */
 //	List<Product> getProductosByCategory();
 
-	List<Product> getByCategory(Category category);
+	List<Product> getByCategory(int id_category);
 }

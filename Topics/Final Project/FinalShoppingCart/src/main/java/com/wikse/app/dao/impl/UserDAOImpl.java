@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.wikse.app.dao.UserDAO;
-import com.wikse.app.entities.Cart;
 import com.wikse.app.entities.User;
 
 @Repository
@@ -24,7 +23,13 @@ public class UserDAOImpl extends GenericDAOImpl<User, Integer> implements UserDA
 		return pasValidated;
 	}
 
-	
+	@Override
+	public User getById(Integer id) {
+		@SuppressWarnings("unchecked")
+		TypedQuery<User> query= (TypedQuery<User>) getManager().createNamedQuery("User.getByid");
+		query.setParameter("iduser", id);
+		return query.getSingleResult();
+	}
 
 	
 

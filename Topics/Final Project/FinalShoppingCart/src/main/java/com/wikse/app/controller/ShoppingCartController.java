@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wikse.app.entities.Cart;
-import com.wikse.app.entities.Category;
 import com.wikse.app.entities.Product;
 import com.wikse.app.entities.User;
 import com.wikse.app.services.ServiceShoppingCart;
@@ -41,7 +40,7 @@ public class ShoppingCartController {
 	}
 
 	@ApiOperation(value="Delete user", response= User.class, notes="Delete user and returns the user Deleted")
-	@RequestMapping(value="/delete",method= RequestMethod.GET)
+	@RequestMapping(value="/delete",method= RequestMethod.DELETE)
 	public boolean deleteUser(@RequestBody User user) {
 		return userService.deleteUser(user);
 	}
@@ -59,7 +58,7 @@ public class ShoppingCartController {
 	}
 	
 	@ApiOperation(value="Add producto to List", response= Product.class, notes="Add producto to  shopping list and returns the product added")
-	@RequestMapping(value="/purchase/cart/{name}/find",method=RequestMethod.GET)
+	@RequestMapping(value="/purchase/{name}/find",method=RequestMethod.GET)
 	public Product addToCartByName(@PathVariable String name) {
 		return cartService.findProductByName(name);
 	}
@@ -69,13 +68,17 @@ public class ShoppingCartController {
 		return userService.validateUser(user.getNameUser(), user.getPassword());
 	}
 	
-	@RequestMapping(value="/products/byCategory", method=RequestMethod.GET)
-	public List<Product> getProductosByCategory(@RequestBody Category category){
-		return cartService.findProductByCategory(category);
+	@RequestMapping(value="/products/byCategory/{idcategory}", method=RequestMethod.GET)
+	public List<Product> getProductosByCategory(@PathVariable int idcategory){
+		return cartService.findProductByCategory(idcategory);
 	}
 	
 	@RequestMapping(value="/purchase/save", method=RequestMethod.PUT)
-	public boolean saveCartOfUser(@RequestBody Cart cart,@RequestBody User user){
+	public boolean saveCartOfUser(@RequestBody Cart cart){
 		return cartService.SaveShoppingCart(cart);
+	}
+	@RequestMapping(value="/purchase/getFromUser/{idUser}", method=RequestMethod.GET)
+	public Cart getOpenCartFromUser(@PathVariable int idUser ){
+		return cartService.findOpenCartsByUserId(idUser);
 	}
 }

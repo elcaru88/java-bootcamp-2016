@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Category {
 
@@ -13,6 +15,7 @@ public class Category {
 	private Integer id_category;
 	private String category_name;
 	@OneToMany
+	@JsonIgnore
 	private List<Product> products;
 	
 	
