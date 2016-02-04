@@ -34,6 +34,19 @@ public class UserServiceImp implements UserService{
 		
 	}
 
+	@Override
+	public User findByUserName(String userName) {
+		return userdao.findByNickName(userName);
+	}
 	
+	@Override
+	public boolean existUserName(String userName) {
+		boolean exist = false;
+		User user = userdao.findByNickName(userName);
+		if (user!= null && user.equals(userName)) {
+			exist = true;
+		}
+		return exist;
+	}
 	
 }
