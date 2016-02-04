@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.finalproject.dao.ShoppingCartDao;
-import com.finalproject.model.Product;
 import com.finalproject.model.ShoppingCart;
 
 @Service

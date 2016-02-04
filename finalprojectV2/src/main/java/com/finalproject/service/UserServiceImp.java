@@ -12,7 +12,7 @@ public class UserServiceImp implements UserService{
 	@Autowired
 	UserDao userdao;
 	
-	@Override
+	
 	public boolean login(User user) {
 
 		User usertemp;
@@ -26,7 +26,7 @@ public class UserServiceImp implements UserService{
 	}
 		
 	
-	@Override
+	
 	public User createUser(String nickName, String password) {
 		
 		User user = new User(nickName,password);
@@ -34,12 +34,12 @@ public class UserServiceImp implements UserService{
 		
 	}
 
-	@Override
+	
 	public User findByUserName(String userName) {
 		return userdao.findByNickName(userName);
 	}
 	
-	@Override
+	
 	public boolean existUserName(String userName) {
 		boolean exist = false;
 		User user = userdao.findByNickName(userName);
