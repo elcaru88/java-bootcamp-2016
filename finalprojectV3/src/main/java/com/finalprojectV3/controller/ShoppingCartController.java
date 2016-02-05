@@ -13,7 +13,7 @@ import com.finalprojectV3.service.CartServiceImp;
 
 @RestController
 @RequestMapping("/cart")
-public class CartController {
+public class ShoppingCartController {
 	
 	@Autowired
 	private CartServiceImp cartServiceImp;
