@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.finalprojectV3.model.Product;
 import com.finalprojectV3.model.ShoppingCart;
 
 @Repository
@@ -42,6 +43,7 @@ public class ShoppingCartDAO {
 	public boolean updateEntity(ShoppingCart entity) {
 		return false;
 	}
+	
 	
 
 }

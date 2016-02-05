@@ -16,13 +16,14 @@ import com.finalprojectV3.service.ShoppingCartServiceImp;
 public class ShoppingCartController {
 	
 	@Autowired
-	private ShoppingCartServiceImp cartServiceImp;
+	private ShoppingCartServiceImp shoppingcartserviceImp;
 	
 	@RequestMapping(value = "/buy", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ShoppingCart> createCart(@RequestBody ShoppingCart cart) {
-		cartServiceImp.addEntity(cart);
+		shoppingcartserviceImp.addEntity(cart);
 		return new ResponseEntity<ShoppingCart>(cart, HttpStatus.OK);
 	}
+	
 	
 	
 }
