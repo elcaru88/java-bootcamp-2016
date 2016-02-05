@@ -17,25 +17,28 @@ import com.finalprojectV3.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	Boolean ok;
+	
+	
+	Boolean check;
 	
 	@Autowired
 	private UserService userService;
 
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST,produces={"application/json"})
+	public ResponseEntity<?> createUser(@RequestBody User user) {
+		userService.addEntity(user);
+		return null;
+	}
+	
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces={"application/json"})
 	public ResponseEntity<User> getUser(@PathVariable int id) {
 		 User response = userService.getEntity(id);
 		 System.out.println(id);
 		 return new ResponseEntity<User>(response, HttpStatus.OK);
 	}
-
-
-
-	@RequestMapping(value = "/create", method = RequestMethod.POST,produces={"application/json"})
-	public ResponseEntity<?> createUser(@RequestBody User user) {
-		userService.addEntity(user);
-		return null;
-	}
+	
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	 public List<User> listStudents(){
@@ -43,23 +46,21 @@ public class UserController {
 		return users;
 	 }
 	
-	
 	@RequestMapping(value = "/login", method = RequestMethod.POST,produces={"application/json"})
 	public boolean loginUser(@RequestBody User user) {
-		ok=false;
-		System.out.println("Login looking goood");
+		check=false;
 		List<User> users=listStudents();
 		for (User iterable : users) {
 			if (iterable.getUsername().equals(user.getUsername())==true &&
 				iterable.getPassword().equals(user.getPassword())==true) {
-				System.out.println("Login lookin5g good");
-				ok=true;
+				System.out.println("Login successful");
+				check=true;
 				}
 		}
 		
-		if (ok==false) {
-			System.out.println("FAIL Login");
+		if (check==false) {
+			System.out.println("Login not passed");
 		}		
-		return ok;
+		return check;
 	}
 }

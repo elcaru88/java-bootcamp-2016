@@ -35,7 +35,7 @@
 			<list>
 				<value>com.finalprojectV3.model.User</value>
 				<value>com.finalprojectV3.model.Product</value>
-				<value>com.finalprojectV3.model.Cart</value>
+				<value>com.finalprojectV3.model.ShoppingCart</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
