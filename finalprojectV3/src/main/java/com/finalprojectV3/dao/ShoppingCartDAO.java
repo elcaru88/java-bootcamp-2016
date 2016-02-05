@@ -40,7 +40,6 @@ public class ShoppingCartDAO {
 	
 	@Transactional
 	public boolean updateEntity(ShoppingCart entity) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

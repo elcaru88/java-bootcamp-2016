@@ -10,7 +10,7 @@ import com.finalprojectV3.dao.UserDAO;
 import com.finalprojectV3.model.User;
 
 @Service
-public class UserServiceImp implements UserService {
+public class UserServiceImp {
 
 	@Autowired
 	UserDAO userDao;

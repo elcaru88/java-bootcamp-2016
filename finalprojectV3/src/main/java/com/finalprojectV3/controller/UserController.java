@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.finalprojectV3.model.User;
-import com.finalprojectV3.service.UserService;
+import com.finalprojectV3.service.UserServiceImp;
 
 @RestController
 @RequestMapping("/user")
@@ -22,7 +22,7 @@ public class UserController {
 	Boolean check;
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImp userService;
 
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST,produces={"application/json"})
