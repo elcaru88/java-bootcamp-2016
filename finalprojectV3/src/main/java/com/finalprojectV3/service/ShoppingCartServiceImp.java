@@ -10,7 +10,7 @@ import com.finalprojectV3.dao.ShoppingCartDAO;
 import com.finalprojectV3.model.ShoppingCart;
 
 @Service
-public class CartServiceImp {
+public class ShoppingCartServiceImp {
 	
 	@Autowired
 	ShoppingCartDAO shoppingcartdao;

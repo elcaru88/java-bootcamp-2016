@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.finalprojectV3.model.ShoppingCart;
-import com.finalprojectV3.service.CartServiceImp;
+import com.finalprojectV3.service.ShoppingCartServiceImp;
 
 @RestController
 @RequestMapping("/cart")
 public class ShoppingCartController {
 	
 	@Autowired
-	private CartServiceImp cartServiceImp;
+	private ShoppingCartServiceImp cartServiceImp;
 	
 	@RequestMapping(value = "/buy", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ShoppingCart> createCart(@RequestBody ShoppingCart cart) {
