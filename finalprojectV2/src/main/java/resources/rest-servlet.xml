@@ -13,8 +13,8 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
-	<context:component-scan base-package="com.programmingfree.springservice.controller" />
-	<context:component-scan base-package="com.pruebas" />
+	<context:component-scan base-package="com.finalproject.controller" />
+	<context:component-scan base-package="com.finalproject" />
 	<mvc:annotation-driven />
 
 
@@ -40,10 +40,12 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
-				</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				   
+				       <property name="hbm2ddl.import_files">import.sql</property>
+				
 			</props>
 		</property>
 	</bean>
